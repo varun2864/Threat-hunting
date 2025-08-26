@@ -1,40 +1,17 @@
-# Threat-hunting
-using trained ML to identify anomalies in enterprise network traffic and deploy countermeasures
+# Hybrid Network Threat Hunter  
 
-# Adaptive Threat Hunting Using Federated Machine Learning
+This project implements a real-time threat hunting system that captures and analyzes raw network traffic. It extracts structured features from packets and applies both rule-based detection and machine learning to identify anomalies, with a primary focus on SYN flood attacks. Detected threats trigger automated countermeasures, such as blocking malicious IPs in real time.  
 
-This repository contains the implementation of a real-time adaptive threat hunting system. The system uses a custom-built network data collection tool and applies federated machine learning to detect anomalies and intrusions efficiently while preserving data privacy.
+## Current Capabilities  
+- **Packet Capture**: Sniffs and logs live network traffic.  
+- **Feature Extraction**: Records IPs, ports, packet size, protocol, and TCP flags.  
+- **Rule-Based Detection**: Identifies SYN flood patterns using thresholds and ratios.  
+- **Machine Learning Mode**: Optionally integrates a trained ML model for anomaly detection.  
+- **Automated Countermeasures**: Blocks and later unblocks malicious IPs using firewall rules.  
+- **CSV Logging**: Maintains structured logs for further analysis and model training.  
 
-# Project Overview
-
-The goal of this project is to move beyond traditional centralized approaches for network intrusion detection. Instead, it leverages federated learning and a custom raw packet analysis tool to:
-
--Maintain data privacy by keeping training data local.
-
--Eliminate the need for third-party tools like Zeek by generating datasets through a purpose-built collection tool.
-
--Periodically retrain the detection model to adapt to evolving network threats.
-
-# Features
-
--Raw Network Packet Capture: Collects Ethernet frames using raw sockets directly from the network interface.
-
--Feature Extraction: Extracts structured features such as source/destination IP and MAC addresses, packet size, and protocol type.
-
--Federated Learning: Distributes model training across nodes using TensorFlow and Scikit-Learn, allowing local model updates without centralizing raw data.
-
--Model Evaluation: Compares multiple algorithms and selects the highest-performing model for deployment.
-
--Adaptive Retraining: Regular model updates improve accuracy over time as new data is collected.
-
-#Technologies Used
-
--Python 3
-
--TensorFlow (federated learning)
-
--Scikit-Learn
-
--Linux raw socket programming
-
--CSV for storing structured network logs
+## Future Plans  
+- **Extended Attack Detection**: Expand detection beyond SYN floods to cover other network threats.  
+- **Improved ML Models**: Train and integrate advanced algorithms for higher accuracy.  
+- **Adaptive Learning**: Periodically retrain models on new traffic data.  
+- **Enhanced Telemetry**: Provide richer reporting and real-time dashboards.  
