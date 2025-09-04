@@ -1,0 +1,3 @@
+sudo hping3 -S 192.168.137.x -p 80 -c 1000
+sudo hping3 -1 192.168.137.x -c 1000
+sudo hping3 -S 192.168.137.x -p ++1 -c 1000
